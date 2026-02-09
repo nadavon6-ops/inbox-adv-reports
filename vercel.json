@@ -23,6 +23,14 @@
     {
       "source": "/aa-orthopedics-annual-2025-vs-2024-report",
       "destination": "/aa-orthopedics-annual-2025-vs-2024-report.html"
+    },
+    {
+      "source": "/cardioteam-diagnosis",
+      "destination": "/cardioteam-traffic-decline-diagnosis.html"
+    },
+    {
+      "source": "/cardioteam-traffic-decline",
+      "destination": "/cardioteam-traffic-decline-diagnosis.html"
     }
   ],
   "headers": [
