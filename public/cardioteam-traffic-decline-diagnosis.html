@@ -39,7 +39,6 @@
             padding: 20px;
         }
 
-        /* Header */
         .header {
             background: linear-gradient(135deg, var(--accent) 0%, #c73659 100%);
             padding: 40px 20px;
@@ -67,7 +66,6 @@
             font-weight: bold;
         }
 
-        /* Executive Summary */
         .exec-summary {
             background: linear-gradient(135deg, rgba(239,68,68,0.2), rgba(239,68,68,0.05));
             border: 2px solid var(--danger);
@@ -79,9 +77,6 @@
         .exec-summary h2 {
             color: var(--danger);
             margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
 
         .decline-stats {
@@ -108,12 +103,15 @@
             color: var(--warning);
         }
 
+        .decline-stat .value.success {
+            color: var(--success);
+        }
+
         .decline-stat .label {
             color: var(--text-muted);
             font-size: 0.9rem;
         }
 
-        /* Section styling */
         .section {
             background: var(--card-bg);
             border-radius: 15px;
@@ -127,12 +125,8 @@
             margin-bottom: 20px;
             padding-bottom: 10px;
             border-bottom: 2px solid var(--accent);
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
 
-        /* Tables */
         .data-table {
             width: 100%;
             border-collapse: collapse;
@@ -156,7 +150,6 @@
             background: rgba(255,255,255,0.05);
         }
 
-        /* Charts */
         .charts-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -179,7 +172,6 @@
             position: relative;
         }
 
-        /* Findings */
         .finding {
             background: rgba(0,0,0,0.2);
             border-radius: 10px;
@@ -203,11 +195,13 @@
             background: rgba(59,130,246,0.1);
         }
 
+        .finding.success {
+            border-right-color: var(--success);
+            background: rgba(16,185,129,0.1);
+        }
+
         .finding h4 {
             margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
 
         .finding p {
@@ -215,7 +209,6 @@
             font-size: 0.95rem;
         }
 
-        /* Timeline */
         .timeline {
             position: relative;
             padding-right: 30px;
@@ -258,7 +251,6 @@
             margin-bottom: 5px;
         }
 
-        /* Progress bars */
         .progress-bar {
             height: 8px;
             background: rgba(255,255,255,0.1);
@@ -270,21 +262,15 @@
         .progress-fill {
             height: 100%;
             border-radius: 4px;
-            transition: width 0.5s ease;
         }
 
         .progress-fill.danger { background: var(--danger); }
         .progress-fill.warning { background: var(--warning); }
         .progress-fill.success { background: var(--success); }
 
-        /* Recommendations */
         .recommendations {
             background: linear-gradient(135deg, rgba(16,185,129,0.1), rgba(16,185,129,0.05));
             border: 1px solid var(--success);
-        }
-
-        .recommendations h2 {
-            color: var(--success);
         }
 
         .rec-item {
@@ -331,7 +317,6 @@
         .priority-high { background: var(--warning); color: #000; }
         .priority-medium { background: #3b82f6; }
 
-        /* Footer */
         .footer {
             text-align: center;
             padding: 30px;
@@ -340,10 +325,44 @@
             margin-top: 30px;
         }
 
+        .comparison-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .period-box {
+            background: rgba(0,0,0,0.2);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .period-box.current {
+            border: 2px solid var(--warning);
+        }
+
+        .period-box.previous {
+            border: 2px solid var(--success);
+        }
+
+        .period-box h4 {
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .period-box .big-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
         @media (max-width: 768px) {
             .header h1 { font-size: 1.8rem; }
             .charts-grid { grid-template-columns: 1fr; }
             .decline-stats { grid-template-columns: repeat(2, 1fr); }
+            .comparison-box { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -353,30 +372,45 @@
         <div class="header">
             <h1>Cardioteam.co.il</h1>
             <p class="subtitle">דוח אבחון ירידה בתנועה</p>
-            <div class="alert-badge">קריטי: זוהתה ירידה של 50% בתנועה</div>
+            <div class="alert-badge">ירידה של 37% בתנועה לאחר עדכון גוגל דצמבר 2025</div>
         </div>
 
         <!-- Executive Summary -->
         <div class="exec-summary">
             <h2>תקציר מנהלים</h2>
-            <p>ניתוח אתר cardioteam.co.il מגלה ירידה משמעותית בתנועה מכ-<strong>8,000 ביקורים אורגניים חודשיים</strong> לכ-<strong>4,000 ביקורים</strong> - <strong>ירידה של 50%</strong>. דוח זה מספק אבחון מקיף של גורמי הירידה והמלצות לשיקום.</p>
+            <p>ניתוח נתוני Google Search Console מראה ירידה משמעותית בתנועה בעקבות עדכון הליבה של גוגל דצמבר 2025. הנתונים מראים ירידה של <strong>37%</strong> בקליקים בהשוואה לתקופה המקבילה לפני העדכון.</p>
 
-            <div class="decline-stats">
+            <div class="comparison-box">
+                <div class="period-box current">
+                    <h4>15 דצמבר 2025 - 8 פברואר 2026</h4>
+                    <div class="big-number" style="color: var(--warning);">7,178</div>
+                    <div style="color: var(--text-muted);">קליקים (56 ימים)</div>
+                    <div style="margin-top: 10px; color: var(--text-muted);">~128 קליקים/יום</div>
+                </div>
+                <div class="period-box previous">
+                    <h4>15 אוקטובר - 8 דצמבר 2025</h4>
+                    <div class="big-number" style="color: var(--success);">11,400</div>
+                    <div style="color: var(--text-muted);">קליקים (55 ימים)</div>
+                    <div style="margin-top: 10px; color: var(--text-muted);">~207 קליקים/יום</div>
+                </div>
+            </div>
+
+            <div class="decline-stats" style="margin-top: 30px;">
                 <div class="decline-stat">
-                    <div class="value">-50%</div>
+                    <div class="value">-37%</div>
                     <div class="label">ירידה בתנועה</div>
                 </div>
                 <div class="decline-stat">
-                    <div class="value">8,444</div>
-                    <div class="label">קליקים נובמבר 2025</div>
+                    <div class="value warning">3,889</div>
+                    <div class="label">קליקים ינואר 2026</div>
                 </div>
                 <div class="decline-stat">
-                    <div class="value warning">~4,000</div>
-                    <div class="label">קליקים משוערים כעת</div>
+                    <div class="value success">4,920</div>
+                    <div class="label">קליקים דצמבר 2025</div>
                 </div>
                 <div class="decline-stat">
-                    <div class="value">29.99%</div>
-                    <div class="label">נראות נוכחית</div>
+                    <div class="value">-21%</div>
+                    <div class="label">ינואר vs דצמבר</div>
                 </div>
             </div>
         </div>
@@ -387,62 +421,61 @@
 
             <div class="finding critical">
                 <h4>השפעת עדכון הליבה של גוגל דצמבר 2025</h4>
-                <p>עדכון הליבה של גוגל דצמבר 2025 (11-29 בדצמבר) כיוון במיוחד לאתרי בריאות. לפי ניתוח SE Ranking, <strong>15% מדפי TOP 10 נעלמו</strong> מהדירוגים. אתרי בריאות היו בין המפסידים הגדולים, עם ירידות נראות משמעותיות באתרים גדולים.</p>
+                <p>עדכון הליבה של גוגל (11-29 בדצמבר 2025) גרם לירידה של <strong>37%</strong> בתנועה. הממוצע היומי ירד מ-207 קליקים ל-128 קליקים. אתרי בריאות היו בין הנפגעים העיקריים בעדכון זה.</p>
             </div>
 
-            <div class="finding critical">
-                <h4>תוצאות פריצת האבטחה</h4>
-                <p>פריצת אבטחה תועדה בדצמבר 2025 (דוח פריצה מ-14 בדצמבר). אירועי אבטחה עלולים להפעיל אזהרות Safe Browsing של גוגל ולגרום להורדת דירוג גם לאחר תיקון.</p>
+            <div class="finding success">
+                <h4>התאוששות בינואר 2026</h4>
+                <p>לאחר סיום העדכון, נרשמה התייצבות. ינואר 2026 הראה 3,889 קליקים, ירידה של 21% בלבד מדצמבר 2025 (4,920 קליקים). דפים מובילים אף הציגו עלייה.</p>
             </div>
 
             <div class="finding warning">
-                <h4>תלות גבוהה בדף יחיד</h4>
-                <p>המאמר "מהו דופק תקין" אחראי ל-<strong>21.3% מכלל התנועה</strong> (1,797 קליקים). כל ירידה בדירוג בדף זה משפיעה באופן משמעותי על התנועה הכוללת.</p>
+                <h4>שיפור במיקומים</h4>
+                <p>רוב הדפים המובילים שיפרו את מיקומם בינואר 2026 לעומת דצמבר 2025. הדף "מהו דופק תקין" שיפר מיקום 4.5 ל-4.0 עם עלייה של 3.7% בקליקים.</p>
             </div>
 
             <div class="finding info">
-                <h4>ביצועי Non-Brand חזקים</h4>
-                <p><strong>97.7%</strong> מהתנועה מגיעה מחיפושים לא ממותגים, מה שמעיד על בסיס SEO אורגני טוב. חיפושי מותג מהווים רק 2.3% - יש מקום לצמיחה במודעות למותג.</p>
+                <h4>יחס מותג/לא-מותג</h4>
+                <p><strong>95.4%</strong> מהתנועה מגיעה מחיפושים לא ממותגים. חיפושי מותג (קרדיוטים, קרדיו טים) מהווים 4.6% - עלייה מ-2.3% בנובמבר.</p>
             </div>
         </div>
 
         <!-- Decline Timeline -->
         <div class="section">
-            <h2 class="section-title">ציר זמן הירידה ואירועים</h2>
+            <h2 class="section-title">ציר זמן הירידה והתאוששות</h2>
 
             <div class="timeline">
                 <div class="timeline-item">
-                    <div class="timeline-date">נובמבר 2025</div>
+                    <div class="timeline-date">אוקטובר-נובמבר 2025</div>
                     <div class="timeline-content">
-                        <strong>ביצועי בסיס</strong><br>
-                        8,444 קליקים | 407,197 חשיפות | 2.07% CTR<br>
-                        מגמה שבועית: יציבה ב-1,800-2,100 קליקים/שבוע
+                        <strong>ביצועי שיא</strong><br>
+                        ~207 קליקים/יום | ~6,200 קליקים/חודש<br>
+                        ביצועים יציבים לפני העדכון
                     </div>
                 </div>
 
                 <div class="timeline-item critical">
                     <div class="timeline-date">11 בדצמבר 2025</div>
                     <div class="timeline-content">
-                        <strong>תחילת עדכון הליבה של גוגל דצמבר 2025</strong><br>
-                        עדכון אלגוריתם משמעותי המתמקד באיכות תוכן ואותות E-E-A-T.<br>
-                        אתרי בריאות נפגעו במיוחד.
+                        <strong>תחילת עדכון הליבה של גוגל</strong><br>
+                        עדכון אלגוריתם משמעותי. אתרי בריאות נפגעו במיוחד.
                     </div>
                 </div>
 
                 <div class="timeline-item critical">
-                    <div class="timeline-date">14 בדצמבר 2025</div>
+                    <div class="timeline-date">29 בדצמבר 2025</div>
                     <div class="timeline-content">
-                        <strong>פריצת אבטחה תועדה</strong><br>
-                        נוצר דוח פריצה. הזרקת קוד זדוני אפשרית או גישה לא מורשית.<br>
-                        עלול להפעיל דגלי Safe Browsing של גוגל.
+                        <strong>סיום העדכון</strong><br>
+                        פריסה של 18 יום הושלמה. התנועה ירדה ל-~128 קליקים/יום.
                     </div>
                 </div>
 
                 <div class="timeline-item">
-                    <div class="timeline-date">29 בדצמבר 2025</div>
+                    <div class="timeline-date">ינואר 2026</div>
                     <div class="timeline-content">
-                        <strong>השלמת עדכון הליבה</strong><br>
-                        פריסה של 18 יום הושלמה. הדירוגים מתייצבים בעמדות החדשות.
+                        <strong>התייצבות</strong><br>
+                        3,889 קליקים בחודש | 125 קליקים/יום<br>
+                        רוב הדפים שיפרו מיקומים
                     </div>
                 </div>
 
@@ -450,110 +483,121 @@
                     <div class="timeline-date">פברואר 2026</div>
                     <div class="timeline-content">
                         <strong>מצב נוכחי</strong><br>
-                        נראות: 29.99% | 40 מילות מפתח ב-Top 10 | תנועה ~50% מנובמבר
+                        המגמה מתייצבת. נדרשת עבודה על E-E-A-T לשיקום מלא.
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Page Decline Analysis -->
+        <!-- Page Analysis -->
         <div class="section">
-            <h2 class="section-title">ניתוח ירידה ברמת הדף</h2>
+            <h2 class="section-title">ניתוח דפים מובילים (ינואר 2026 vs דצמבר 2025)</h2>
 
-            <p style="margin-bottom: 20px; color: var(--text-muted);">דפים מובילים בתנועה לפי נפח קליקים בנובמבר 2025. דפים אלו מייצגים את ההזדמנויות בעלות ההשפעה הגבוהה ביותר לשיקום.</p>
+            <p style="margin-bottom: 20px; color: var(--text-muted);">השוואת ביצועי הדפים המובילים. רוב הדפים הראו שיפור במיקום ועלייה בקליקים.</p>
 
             <table class="data-table">
                 <thead>
                     <tr>
                         <th>דף</th>
-                        <th>קליקים נוב׳</th>
-                        <th>% מהתנועה</th>
-                        <th>מיקום ממוצע</th>
-                        <th>רמת סיכון</th>
+                        <th>ינואר 26</th>
+                        <th>דצמבר 25</th>
+                        <th>שינוי</th>
+                        <th>מיקום ינו׳</th>
+                        <th>מיקום דצמ׳</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>/מהו-דופק-תקין/</td>
-                        <td>1,797</td>
-                        <td>21.3%</td>
-                        <td>3.5</td>
-                        <td><span class="priority-tag priority-critical">קריטי</span></td>
+                        <td>1,141</td>
+                        <td>1,100</td>
+                        <td style="color: var(--success);">+3.7%</td>
+                        <td>4.0</td>
+                        <td>4.5</td>
                     </tr>
                     <tr>
                         <td>/כאבים-בחזה-המדריך-המלא/</td>
-                        <td>861</td>
-                        <td>10.2%</td>
-                        <td>4.6</td>
-                        <td><span class="priority-tag priority-critical">קריטי</span></td>
-                    </tr>
-                    <tr>
-                        <td>/כל-מה-שחשוב-לדעת-על-לחץ-דם-נמוך/</td>
-                        <td>410</td>
-                        <td>4.9%</td>
-                        <td>5.5</td>
-                        <td><span class="priority-tag priority-high">גבוה</span></td>
-                    </tr>
-                    <tr>
-                        <td>/מה-הקשר-בין-הלב-לבין-בצקות-ברגליים/</td>
-                        <td>397</td>
-                        <td>4.7%</td>
-                        <td>5.3</td>
-                        <td><span class="priority-tag priority-high">גבוה</span></td>
-                    </tr>
-                    <tr>
-                        <td>/דקירות-בחזה-אצל-נשים/</td>
-                        <td>384</td>
-                        <td>4.5%</td>
-                        <td>5.0</td>
-                        <td><span class="priority-tag priority-high">גבוה</span></td>
-                    </tr>
-                    <tr>
-                        <td>/אקג/</td>
-                        <td>354</td>
-                        <td>4.2%</td>
-                        <td>5.7</td>
-                        <td><span class="priority-tag priority-medium">בינוני</span></td>
-                    </tr>
-                    <tr>
-                        <td>/מתי-ואיך-משתמשים-במכשיר-הולטר/</td>
-                        <td>350</td>
-                        <td>4.1%</td>
-                        <td>4.8</td>
-                        <td><span class="priority-tag priority-medium">בינוני</span></td>
+                        <td>425</td>
+                        <td>389</td>
+                        <td style="color: var(--success);">+9.3%</td>
+                        <td>5.2</td>
+                        <td>6.7</td>
                     </tr>
                     <tr>
                         <td>/דפיקות-לב-מהירות-בהריון/</td>
-                        <td>298</td>
-                        <td>3.5%</td>
-                        <td>8.0</td>
-                        <td><span class="priority-tag priority-medium">בינוני</span></td>
+                        <td>238</td>
+                        <td>180</td>
+                        <td style="color: var(--success);">+32.2%</td>
+                        <td>8.9</td>
+                        <td>12.5</td>
+                    </tr>
+                    <tr>
+                        <td>/דקירות-בחזה-אצל-נשים/</td>
+                        <td>209</td>
+                        <td>189</td>
+                        <td style="color: var(--success);">+10.6%</td>
+                        <td>6.7</td>
+                        <td>9.2</td>
+                    </tr>
+                    <tr>
+                        <td>/אקג/</td>
+                        <td>197</td>
+                        <td>173</td>
+                        <td style="color: var(--success);">+13.9%</td>
+                        <td>5.7</td>
+                        <td>7.3</td>
+                    </tr>
+                    <tr>
+                        <td>/כל-מה-שחשוב-לדעת-על-לחץ-דם-נמוך/</td>
+                        <td>146</td>
+                        <td>161</td>
+                        <td style="color: var(--danger);">-9.3%</td>
+                        <td>5.3</td>
+                        <td>6.7</td>
+                    </tr>
+                    <tr>
+                        <td>/מה-הקשר-בין-הלב-לבין-בצקות-ברגליים/</td>
+                        <td>123</td>
+                        <td>104</td>
+                        <td style="color: var(--success);">+18.3%</td>
+                        <td>7.7</td>
+                        <td>9.4</td>
                     </tr>
                     <tr>
                         <td>/כל-מה-שאתם-צריכים-לדעת-על-פעימות-מוקדמו/</td>
-                        <td>243</td>
-                        <td>2.9%</td>
-                        <td>3.3</td>
-                        <td><span class="priority-tag priority-medium">בינוני</span></td>
+                        <td>107</td>
+                        <td>105</td>
+                        <td style="color: var(--success);">+1.9%</td>
+                        <td>3.7</td>
+                        <td>4.5</td>
                     </tr>
                     <tr>
-                        <td>/אוושה-בלב-רשרוש-בלב/</td>
-                        <td>171</td>
-                        <td>2.0%</td>
+                        <td>/staff/פרופ-יוסף-שמש/</td>
+                        <td>101</td>
+                        <td>477</td>
+                        <td style="color: var(--danger);">-78.8%</td>
+                        <td>4.5</td>
                         <td>3.0</td>
-                        <td><span class="priority-tag priority-medium">בינוני</span></td>
+                    </tr>
+                    <tr>
+                        <td>/מתי-ואיך-משתמשים-במכשיר-הולטר/</td>
+                        <td>97</td>
+                        <td>86</td>
+                        <td style="color: var(--success);">+12.8%</td>
+                        <td>5.8</td>
+                        <td>7.1</td>
                     </tr>
                 </tbody>
             </table>
 
-            <p style="margin-top: 20px; padding: 15px; background: rgba(239,68,68,0.1); border-radius: 8px;">
-                <strong>תובנה מרכזית:</strong> 5 הדפים המובילים אחראים ל-<strong>45.6%</strong> מכלל התנועה. כל ירידה בדירוג בדפים אלה משפיעה באופן מאסיבי. 2 הדפים המובילים לבדם מייצגים 31.5% מכל התנועה האורגנית.
+            <p style="margin-top: 20px; padding: 15px; background: rgba(16,185,129,0.1); border-radius: 8px;">
+                <strong>תובנה חיובית:</strong> 8 מתוך 10 הדפים המובילים הראו עלייה בקליקים ושיפור במיקום בינואר 2026. הירידה העיקרית נצפתה בדף פרופ׳ יוסף שמש (-78.8%).
             </p>
         </div>
 
-        <!-- Brand vs Non-Brand Analysis -->
+        <!-- Brand vs Non-Brand -->
         <div class="section">
-            <h2 class="section-title">ניתוח שאילתות מותג מול לא-מותג</h2>
+            <h2 class="section-title">ניתוח שאילתות מותג מול לא-מותג (ינואר 2026)</h2>
 
             <div class="charts-grid">
                 <div class="chart-card">
@@ -577,47 +621,48 @@
                             <tbody>
                                 <tr>
                                     <td>קרדיו טים</td>
-                                    <td>48</td>
-                                    <td>0.6%</td>
+                                    <td>46</td>
+                                    <td>2.2%</td>
                                 </tr>
                                 <tr>
                                     <td>קרדיוטים</td>
-                                    <td>27</td>
-                                    <td>0.3%</td>
+                                    <td>37</td>
+                                    <td>1.8%</td>
                                 </tr>
                                 <tr>
                                     <td>cardioteam</td>
-                                    <td>~20</td>
+                                    <td>6</td>
+                                    <td>0.3%</td>
+                                </tr>
+                                <tr>
+                                    <td>cardio team</td>
+                                    <td>5</td>
                                     <td>0.2%</td>
                                 </tr>
                                 <tr style="font-weight: bold; background: rgba(233,69,96,0.1);">
                                     <td>סה״כ מותג</td>
-                                    <td>196</td>
-                                    <td>2.3%</td>
+                                    <td>95</td>
+                                    <td>4.6%</td>
                                 </tr>
                                 <tr style="font-weight: bold; background: rgba(16,185,129,0.1);">
                                     <td>לא-מותג</td>
-                                    <td>8,248</td>
-                                    <td>97.7%</td>
+                                    <td>1,958</td>
+                                    <td>95.4%</td>
                                 </tr>
                             </tbody>
                         </table>
-
-                        <div style="margin-top: 20px; padding: 15px; background: rgba(59,130,246,0.1); border-radius: 8px;">
-                            <strong>ניתוח:</strong> אחוז חיפוש המותג הנמוך ביותר (2.3%) מעיד שהאתר נשען בכבדות על שאילתות רפואיות כלליות. זה הופך אותו לפגיע לעדכוני אלגוריתם המתמקדים בתוכן בריאות.
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Keyword Groups Analysis -->
+        <!-- Keyword Groups -->
         <div class="section">
-            <h2 class="section-title">ביצועי קבוצות מילות מפתח</h2>
+            <h2 class="section-title">ביצועי קבוצות מילות מפתח (ינואר 2026)</h2>
 
             <div class="charts-grid">
                 <div class="chart-card">
-                    <h4>תנועה לפי קטגוריית נושא</h4>
+                    <h4>תנועה לפי קטגוריה</h4>
                     <div class="chart-container">
                         <canvas id="keywordGroupChart"></canvas>
                     </div>
@@ -632,79 +677,48 @@
                                     <th>קטגוריה</th>
                                     <th>קליקים</th>
                                     <th>שאילתות</th>
-                                    <th>תלות</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>דופק</td>
-                                    <td>831</td>
-                                    <td>167</td>
-                                    <td>
-                                        <div class="progress-bar">
-                                            <div class="progress-fill danger" style="width: 98%"></div>
-                                        </div>
-                                    </td>
+                                    <td>דופק / קצב לב</td>
+                                    <td>569</td>
+                                    <td>190</td>
                                 </tr>
                                 <tr>
-                                    <td>כאבים בחזה</td>
-                                    <td>382</td>
-                                    <td>92</td>
-                                    <td>
-                                        <div class="progress-bar">
-                                            <div class="progress-fill warning" style="width: 45%"></div>
-                                        </div>
-                                    </td>
+                                    <td>כאבים / דקירות בחזה</td>
+                                    <td>181</td>
+                                    <td>53</td>
                                 </tr>
                                 <tr>
                                     <td>לחץ דם</td>
-                                    <td>264</td>
-                                    <td>40</td>
-                                    <td>
-                                        <div class="progress-bar">
-                                            <div class="progress-fill warning" style="width: 31%"></div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>הולטר</td>
-                                    <td>243</td>
-                                    <td>22</td>
-                                    <td>
-                                        <div class="progress-bar">
-                                            <div class="progress-fill success" style="width: 29%"></div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>רופאים</td>
-                                    <td>179</td>
-                                    <td>60</td>
-                                    <td>
-                                        <div class="progress-bar">
-                                            <div class="progress-fill success" style="width: 21%"></div>
-                                        </div>
-                                    </td>
+                                    <td>87</td>
+                                    <td>39</td>
                                 </tr>
                                 <tr>
                                     <td>אק״ג</td>
-                                    <td>165</td>
+                                    <td>75</td>
                                     <td>37</td>
-                                    <td>
-                                        <div class="progress-bar">
-                                            <div class="progress-fill success" style="width: 20%"></div>
-                                        </div>
-                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>הולטר</td>
+                                    <td>57</td>
+                                    <td>20</td>
                                 </tr>
                                 <tr>
                                     <td>מסתם</td>
-                                    <td>120</td>
-                                    <td>20</td>
-                                    <td>
-                                        <div class="progress-bar">
-                                            <div class="progress-fill success" style="width: 14%"></div>
-                                        </div>
-                                    </td>
+                                    <td>48</td>
+                                    <td>19</td>
+                                </tr>
+                                <tr>
+                                    <td>קוצב לב</td>
+                                    <td>14</td>
+                                    <td>13</td>
+                                </tr>
+                                <tr>
+                                    <td>אי ספיקת לב</td>
+                                    <td>10</td>
+                                    <td>10</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -713,229 +727,90 @@
             </div>
         </div>
 
-        <!-- Google Core Update Impact -->
+        <!-- Top Queries -->
         <div class="section">
-            <h2 class="section-title">ניתוח עדכון הליבה של גוגל דצמבר 2025</h2>
-
-            <div class="finding critical">
-                <h4>ציר זמן העדכון</h4>
-                <p><strong>התחיל:</strong> 11 בדצמבר 2025 | <strong>הושלם:</strong> 29 בדצמבר 2025 (פריסה של 18 יום)</p>
-            </div>
-
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px;">
-                <div class="chart-card">
-                    <h4>מאפייני העדכון המרכזיים</h4>
-                    <ul style="list-style: none; padding: 10px;">
-                        <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
-                            15% מדפי TOP 10 נעלמו מ-TOP 100
-                        </li>
-                        <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
-                            אתרי בריאות בין המפסידים הגדולים
-                        </li>
-                        <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
-                            אותות E-E-A-T קיבלו משקל גבוה
-                        </li>
-                        <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
-                            ויקיפדיה איבדה 435+ נקודות נראות
-                        </li>
-                        <li style="padding: 8px 0;">
-                            מדדי חווית משתמש קיבלו דגש
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="chart-card">
-                    <h4>למה קרדיוטים נפגע</h4>
-                    <ul style="list-style: none; padding: 10px;">
-                        <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
-                            <span style="color: var(--danger);">תוכן YMYL</span> - נושאי בריאות/רפואה דורשים אמון גבוה ביותר
-                        </li>
-                        <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
-                            <span style="color: var(--danger);">אירוע אבטחה</span> - הפריצה עלולה הפעילה אותות אמון
-                        </li>
-                        <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
-                            <span style="color: var(--warning);">דרישות E-E-A-T</span> - נדרשים אישורי מחבר חזקים יותר
-                        </li>
-                        <li style="padding: 8px 0;">
-                            <span style="color: var(--warning);">Core Web Vitals</span> - נדרש אופטימיזציית ביצועים
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div style="margin-top: 20px; padding: 20px; background: rgba(59,130,246,0.1); border-radius: 10px;">
-                <h4 style="margin-bottom: 10px;">מקורות</h4>
-                <ul style="font-size: 0.9rem; color: var(--text-muted);">
-                    <li><a href="https://seranking.com/blog/google-december-2025-core-update-serp-analysis/" style="color: var(--accent);">SE Ranking: 15% מדפי TOP 10 נעלמו</a></li>
-                    <li><a href="https://www.gsqi.com/marketing-blog/google-december-2025-broad-core-update-analysis-findings/" style="color: var(--accent);">GSQI: ניתוח פריסה של 18 יום</a></li>
-                    <li><a href="https://www.dataslayer.ai/blog/google-core-update-december-2025-what-changed-and-how-to-fix-your-rankings" style="color: var(--accent);">Dataslayer: שינויי E-E-A-T</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Indexing & Technical Analysis -->
-        <div class="section">
-            <h2 class="section-title">סטטוס אינדוקס וטכני</h2>
-
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
-                <div class="chart-card">
-                    <h4>סטטוס אינדוקס</h4>
-                    <div style="text-align: center; padding: 20px;">
-                        <div style="font-size: 3rem; font-weight: bold; color: var(--success);">15,600</div>
-                        <div style="color: var(--text-muted);">דפים באינדקס גוגל</div>
-                        <div style="margin-top: 15px; padding: 10px; background: rgba(16,185,129,0.1); border-radius: 8px;">
-                            כמות האינדקס נראית בריאה
-                        </div>
-                    </div>
-                </div>
-
-                <div class="chart-card">
-                    <h4>אמינות דומיין</h4>
-                    <div style="text-align: center; padding: 20px;">
-                        <div style="font-size: 3rem; font-weight: bold; color: var(--warning);">18</div>
-                        <div style="color: var(--text-muted);">ציון אמינות דומיין</div>
-                        <div style="margin-top: 15px; padding: 10px; background: rgba(245,158,11,0.1); border-radius: 8px;">
-                            מתחת לממוצע - נדרש שיפור
-                        </div>
-                    </div>
-                </div>
-
-                <div class="chart-card">
-                    <h4>נראות נוכחית</h4>
-                    <div style="text-align: center; padding: 20px;">
-                        <div style="font-size: 3rem; font-weight: bold; color: var(--warning);">29.99%</div>
-                        <div style="color: var(--text-muted);">נראות SE Ranking</div>
-                        <div style="margin-top: 15px; padding: 10px; background: rgba(245,158,11,0.1); border-radius: 8px;">
-                            ירד מרמות גבוהות יותר
-                        </div>
-                    </div>
-                </div>
-
-                <div class="chart-card">
-                    <h4>שינויי מיקום</h4>
-                    <div style="text-align: center; padding: 20px;">
-                        <div style="display: flex; justify-content: center; gap: 30px;">
-                            <div>
-                                <div style="font-size: 2rem; color: var(--success);">+19</div>
-                                <div style="color: var(--text-muted); font-size: 0.9rem;">עלו</div>
-                            </div>
-                            <div>
-                                <div style="font-size: 2rem; color: var(--danger);">-26</div>
-                                <div style="color: var(--text-muted); font-size: 0.9rem;">ירדו</div>
-                            </div>
-                        </div>
-                        <div style="margin-top: 15px; padding: 10px; background: rgba(239,68,68,0.1); border-radius: 8px;">
-                            מגמה שלילית נטו
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="finding warning" style="margin-top: 20px;">
-                <h4>הערכת השפעת פריצת האבטחה</h4>
-                <p>פריצת אבטחה תועדה ב-14 בדצמבר 2025. השפעות אפשריות כוללות:</p>
-                <ul style="margin-top: 10px; margin-right: 20px; color: var(--text-muted);">
-                    <li>אזהרות Safe Browsing של גוגל (אם זוהה קוד זדוני)</li>
-                    <li>הורדת דירוג זמנית כצעד זהירות</li>
-                    <li>ירידה באותות אמון משתמשים (שיעורי נטישה, זמן באתר)</li>
-                    <li>הזרקת קישורי ספאם אפשרית המשפיעה על פרופיל הקישורים</li>
-                </ul>
-                <p style="margin-top: 10px;"><strong>המלצה:</strong> בקשו שיקול דעת מחדש מגוגל והגישו דוחות סריקת אבטחה נקיים.</p>
-            </div>
-        </div>
-
-        <!-- SE Ranking Current Positions -->
-        <div class="section">
-            <h2 class="section-title">מיקומי מילות מפתח נוכחיים (נתונים חיים - פברואר 2026)</h2>
-
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px;">
-                <div class="decline-stat">
-                    <div class="value" style="color: var(--success);">33</div>
-                    <div class="label">מילות מפתח ב-Top 5</div>
-                </div>
-                <div class="decline-stat">
-                    <div class="value" style="color: var(--success);">40</div>
-                    <div class="label">מילות מפתח ב-Top 10</div>
-                </div>
-                <div class="decline-stat">
-                    <div class="value" style="color: var(--warning);">76</div>
-                    <div class="label">מילות מפתח ב-Top 30</div>
-                </div>
-                <div class="decline-stat">
-                    <div class="value">111,780</div>
-                    <div class="label">סה״כ נפח חיפוש</div>
-                </div>
-            </div>
+            <h2 class="section-title">שאילתות מובילות (ינואר 2026 vs דצמבר 2025)</h2>
 
             <table class="data-table">
                 <thead>
                     <tr>
-                        <th>מילת מפתח</th>
+                        <th>שאילתה</th>
+                        <th>ינואר 26</th>
+                        <th>דצמבר 25</th>
+                        <th>שינוי</th>
                         <th>מיקום</th>
-                        <th>נפח חיפוש</th>
-                        <th>סטטוס</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>דופק תקין</td>
-                        <td>1</td>
-                        <td>4,400</td>
-                        <td><span style="color: var(--success);">יציב</span></td>
+                        <td>149</td>
+                        <td>124</td>
+                        <td style="color: var(--success);">+20.2%</td>
+                        <td>1.6</td>
                     </tr>
                     <tr>
-                        <td>כאבים בחזה</td>
-                        <td>2</td>
-                        <td>2,900</td>
-                        <td><span style="color: var(--success);">יציב</span></td>
+                        <td>קרדיו טים (מותג)</td>
+                        <td>46</td>
+                        <td>32</td>
+                        <td style="color: var(--success);">+43.8%</td>
+                        <td>1.1</td>
+                    </tr>
+                    <tr>
+                        <td>קרדיוטים (מותג)</td>
+                        <td>37</td>
+                        <td>46</td>
+                        <td style="color: var(--danger);">-19.6%</td>
+                        <td>1.0</td>
+                    </tr>
+                    <tr>
+                        <td>טבלת דופק לפי גיל</td>
+                        <td>33</td>
+                        <td>58</td>
+                        <td style="color: var(--danger);">-43.1%</td>
+                        <td>3.1</td>
+                    </tr>
+                    <tr>
+                        <td>לחץ דם נמוך</td>
+                        <td>28</td>
+                        <td>54</td>
+                        <td style="color: var(--danger);">-48.1%</td>
+                        <td>2.3</td>
                     </tr>
                     <tr>
                         <td>דופק תקין במנוחה</td>
-                        <td>2</td>
-                        <td>1,600</td>
-                        <td><span style="color: var(--success);">יציב</span></td>
+                        <td>26</td>
+                        <td>25</td>
+                        <td style="color: var(--success);">+4.0%</td>
+                        <td>6.9</td>
                     </tr>
                     <tr>
-                        <td>לחץ בחזה</td>
-                        <td>2</td>
-                        <td>1,000</td>
-                        <td><span style="color: var(--success);">יציב</span></td>
-                    </tr>
-                    <tr>
-                        <td>קצב לב תקין</td>
-                        <td>2</td>
-                        <td>720</td>
-                        <td><span style="color: var(--success);">יציב</span></td>
-                    </tr>
-                    <tr>
-                        <td>בדיקת אקג</td>
-                        <td>3</td>
-                        <td>880</td>
-                        <td><span style="color: var(--success);">השתפר</span></td>
+                        <td>דקירות בחזה אצל נשים</td>
+                        <td>24</td>
+                        <td>16</td>
+                        <td style="color: var(--success);">+50.0%</td>
+                        <td>1.6</td>
                     </tr>
                     <tr>
                         <td>הולטר לב</td>
-                        <td>5</td>
-                        <td>2,400</td>
-                        <td><span style="color: var(--warning);">למעקב</span></td>
+                        <td>22</td>
+                        <td>28</td>
+                        <td style="color: var(--danger);">-21.4%</td>
+                        <td>6.9</td>
                     </tr>
                     <tr>
-                        <td>אקו לב</td>
-                        <td>35</td>
-                        <td>4,400</td>
-                        <td><span style="color: var(--danger);">דורש עבודה</span></td>
+                        <td>תוחלת חיים לאחר החלפת מסתם</td>
+                        <td>21</td>
+                        <td>46</td>
+                        <td style="color: var(--danger);">-54.3%</td>
+                        <td>3.1</td>
                     </tr>
                     <tr>
-                        <td>קוצב לב</td>
-                        <td>22-25</td>
-                        <td>4,400</td>
-                        <td><span style="color: var(--danger);">ירד</span></td>
-                    </tr>
-                    <tr>
-                        <td>אי ספיקת לב</td>
-                        <td>18-19</td>
-                        <td>3,600</td>
-                        <td><span style="color: var(--warning);">הזדמנות</span></td>
+                        <td>כאבים בחזה</td>
+                        <td>19</td>
+                        <td>24</td>
+                        <td style="color: var(--danger);">-20.8%</td>
+                        <td>3.1</td>
                     </tr>
                 </tbody>
             </table>
@@ -943,61 +818,45 @@
 
         <!-- Recovery Recommendations -->
         <div class="section recommendations">
-            <h2 class="section-title" style="color: var(--success);">תוכנית פעולה לשיקום</h2>
+            <h2 class="section-title" style="color: var(--success);">תוכנית פעולה להמשך שיקום</h2>
 
             <div class="rec-item">
                 <div class="rec-number">1</div>
                 <div class="rec-content">
-                    <h4><span class="priority-tag priority-critical">קריטי</span>תיקון אבטחה ובקשת שיקול דעת מחדש</h4>
-                    <p>השלימו ביקורת אבטחה מלאה, הסירו את כל שאריות הקוד הזדוני, והגישו בקשת שיקול דעת מחדש לגוגל. כללו דוחות סריקת אבטחה מספקים אמינים (Sucuri, SiteLock).</p>
+                    <h4><span class="priority-tag priority-critical">קריטי</span>שיפור E-E-A-T לתוכן בריאות</h4>
+                    <p>הוסיפו ביוגרפיות מחברים בולטות עם אישורים רפואיים. כללו קישורים לפרופילי רופאים, הסמכות ושיוכים מקצועיים. הוסיפו תגי "נבדק על ידי" עם שמות רופאים.</p>
                 </div>
             </div>
 
             <div class="rec-item">
                 <div class="rec-number">2</div>
                 <div class="rec-content">
-                    <h4><span class="priority-tag priority-critical">קריטי</span>שיפור E-E-A-T לתוכן בריאות</h4>
-                    <p>הוסיפו ביוגרפיות מחברים בולטות עם אישורים רפואיים לכל המאמרים. כללו קישורים לפרופילי רופאים, הסמכות ושיוכים מקצועיים. הוסיפו תגי "נבדק על ידי" עם שמות רופאים.</p>
+                    <h4><span class="priority-tag priority-high">גבוה</span>רענון תוכן לדפים שירדו</h4>
+                    <p>עדכנו את הדפים שהראו ירידה: "טבלת דופק לפי גיל" (-43%), "לחץ דם נמוך" (-48%), "תוחלת חיים לאחר החלפת מסתם" (-54%). הוסיפו תוכן עדכני והנחיות רפואיות 2025-2026.</p>
                 </div>
             </div>
 
             <div class="rec-item">
                 <div class="rec-number">3</div>
                 <div class="rec-content">
-                    <h4><span class="priority-tag priority-high">גבוה</span>אופטימיזציית Core Web Vitals</h4>
-                    <p>שפרו את ציוני LCP, FID/INP ו-CLS. התמקדו באופטימיזציית תמונות, טעינה עצלה, והפחתת זמן חסימת JavaScript. כוונו לציון PageSpeed של 90+ בנייד.</p>
+                    <h4><span class="priority-tag priority-high">גבוה</span>אופטימיזציה לדף פרופ׳ יוסף שמש</h4>
+                    <p>הדף הראה ירידה של 78.8%. בדקו סיבות טכניות (אינדוקס, קנוניקל) וחזקו את התוכן עם פרסומים, הישגים ומידע מקצועי מעודכן.</p>
                 </div>
             </div>
 
             <div class="rec-item">
                 <div class="rec-number">4</div>
                 <div class="rec-content">
-                    <h4><span class="priority-tag priority-high">גבוה</span>רענון תוכן לדפים המובילים</h4>
-                    <p>עדכנו את 5 הדפים המובילים בתנועה עם תוכן טרי, הנחיות רפואיות עדכניות (2025-2026), וקישור פנימי משופר. הוסיפו סימון סכמה של שאלות נפוצות.</p>
+                    <h4><span class="priority-tag priority-medium">בינוני</span>ניצול המומנטום החיובי</h4>
+                    <p>דפים כמו "דפיקות לב מהירות בהריון" (+32%), "כאבים בחזה" (+9.3%), "אקג" (+13.9%) בצמיחה. הרחיבו תוכן בנושאים אלו וצרו תוכן קשור.</p>
                 </div>
             </div>
 
             <div class="rec-item">
                 <div class="rec-number">5</div>
                 <div class="rec-content">
-                    <h4><span class="priority-tag priority-medium">בינוני</span>שחזור מילות מפתח במיקומים 11-30</h4>
-                    <p>כוונו למילות מפתח כמו "אקו לב" (מיקום 35), "קוצב לב" (מיקום 22-25), ו"אי ספיקת לב" (מיקום 18-19) עם שיפורי תוכן ייעודיים. מילות מפתח בנפח גבוה אלו יכולות לשחזר תנועה משמעותית.</p>
-                </div>
-            </div>
-
-            <div class="rec-item">
-                <div class="rec-number">6</div>
-                <div class="rec-content">
-                    <h4><span class="priority-tag priority-medium">בינוני</span>בניית נוכחות חיפוש מותג</h4>
-                    <p>חיפושי מותג נוכחיים הם רק 2.3% מהתנועה. יישמו קמפייני יח"צ, נוכחות ברשתות חברתיות ואופטימיזציה של פרופיל Google Business כדי להגדיל את ההכרה במותג.</p>
-                </div>
-            </div>
-
-            <div class="rec-item">
-                <div class="rec-number">7</div>
-                <div class="rec-content">
-                    <h4><span class="priority-tag priority-medium">בינוני</span>ביקורת פרופיל קישורים נכנסים</h4>
-                    <p>בדקו ודחו קישורים רעילים שאולי הוזרקו במהלך הפריצה. בנו קישורים איכותיים חדשים ממקורות בריאות/רפואה סמכותיים.</p>
+                    <h4><span class="priority-tag priority-medium">בינוני</span>מעקב וניתוח שוטף</h4>
+                    <p>המשיכו לעקוב אחר ביצועי השאילתות והדפים. העדכון הסתיים ב-29 בדצמבר ויש סימני התאוששות. צפו להמשך שיפור בחודשים הקרובים.</p>
                 </div>
             </div>
         </div>
@@ -1005,8 +864,9 @@
         <!-- Footer -->
         <div class="footer">
             <p>דוח אבחון SEO</p>
-            <p>מקורות נתונים: Google Search Console (נוב׳ 2025) | SE Ranking API (פבר׳ 2026)</p>
-            <p>הדוח נוצר: פברואר 2026</p>
+            <p>מקורות נתונים: Google Search Console</p>
+            <p>תקופת ניתוח: ינואר 2026 vs דצמבר 2025 | דצמבר 2025 - פברואר 2026 vs אוקטובר - דצמבר 2025</p>
+            <p>הדוח נוצר: 9 בפברואר 2026</p>
         </div>
     </div>
 
@@ -1015,9 +875,9 @@
         new Chart(document.getElementById('brandChart'), {
             type: 'doughnut',
             data: {
-                labels: ['לא-מותג (97.7%)', 'מותג (2.3%)'],
+                labels: ['לא-מותג (95.4%)', 'מותג (4.6%)'],
                 datasets: [{
-                    data: [97.7, 2.3],
+                    data: [95.4, 4.6],
                     backgroundColor: ['#10b981', '#e94560'],
                     borderWidth: 0
                 }]
@@ -1038,10 +898,10 @@
         new Chart(document.getElementById('keywordGroupChart'), {
             type: 'bar',
             data: {
-                labels: ['דופק', 'כאבים בחזה', 'לחץ דם', 'הולטר', 'רופאים', 'אק״ג', 'מסתם'],
+                labels: ['דופק', 'כאבים בחזה', 'לחץ דם', 'אק״ג', 'הולטר', 'מסתם', 'קוצב', 'אי ספיקת לב'],
                 datasets: [{
                     label: 'קליקים',
-                    data: [831, 382, 264, 243, 179, 165, 120],
+                    data: [569, 181, 87, 75, 57, 48, 14, 10],
                     backgroundColor: '#e94560',
                     borderRadius: 5
                 }]
